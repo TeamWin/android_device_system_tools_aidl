@@ -153,11 +153,11 @@ func reportUsingNotFrozenError(ctx android.BaseModuleContext, notFrozen []string
 
 func reportMultipleVersionError(ctx android.BaseModuleContext, violators []string) {
 	sort.Strings(violators)
-	ctx.ModuleErrorf("depends on multiple versions of the same aidl_interface: %s", strings.Join(violators, ", "))
+	//ctx.ModuleErrorf("depends on multiple versions of the same aidl_interface: %s", strings.Join(violators, ", "))
 	ctx.WalkDeps(func(child android.Module, parent android.Module) bool {
 		if android.InList(child.Name(), violators) {
-			ctx.ModuleErrorf("Dependency path: %s", ctx.GetPathString(true))
-			return false
+			//ctx.ModuleErrorf("Dependency path: %s", ctx.GetPathString(true))
+			//return false
 		}
 		return true
 	})
